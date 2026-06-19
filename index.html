@@ -257,10 +257,13 @@
     }
     .svc-card {
       background: var(--white); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 36px 28px;
+      border-radius: var(--radius); padding: 0;
       transition: box-shadow .25s, transform .2s, border-color .2s;
+      overflow: hidden;
     }
     .svc-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); border-color: #bae6fd; }
+    .svc-card-img { width: 100%; height: 180px; object-fit: cover; }
+    .svc-card-body { padding: 28px 24px; }
     .svc-icon {
       width: 52px; height: 52px; border-radius: 12px;
       background: var(--sky-l); display: flex; align-items: center; justify-content: center;
@@ -502,6 +505,7 @@
     <p class="reveal d1" style="font-size:clamp(1rem,2vw,1.3rem);color:rgba(255,255,255,.65);letter-spacing:.1em;text-transform:uppercase;font-weight:500;margin-bottom:2rem">Lake Tapps, Washington</p>
     <div class="hero-btns reveal d2" style="justify-content:center">
       <a href="tel:2533500457" class="btn-primary"><i class="fa-solid fa-phone"></i> (253) 350-0457</a>
+      <a href="#contact" class="btn-ghost" style="background:#fff;color:var(--ink);border:none;font-weight:800;box-shadow:0 4px 18px rgba(0,0,0,.2);"><i class="fa-solid fa-file-invoice"></i> Free Estimate</a>
       <a href="#contact" class="btn-ghost"><i class="fa-solid fa-calendar-check"></i> Book Now</a>
     </div>
   </div>
@@ -539,19 +543,78 @@
     </div>
     <div class="services-grid">
       <div class="svc-card reveal">
-        <div class="svc-icon"><i class="fa-solid fa-house"></i></div>
-        <div class="svc-name">Residential Window Washing</div>
-        <p class="svc-desc">Give your home's windows a new life. We use professional cleaning products that keep your windows cleaner, longer — guaranteed.</p>
+        <img class="svc-card-img" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80&fit=crop" alt="Residential home with clean windows" loading="lazy"/>
+        <div class="svc-card-body">
+          <div class="svc-icon"><i class="fa-solid fa-house"></i></div>
+          <div class="svc-name">Residential Window Washing</div>
+          <p class="svc-desc">Give your home's windows a new life. We use professional cleaning products that keep your windows cleaner, longer — guaranteed.</p>
+        </div>
       </div>
       <div class="svc-card reveal d1">
-        <div class="svc-icon"><i class="fa-solid fa-building"></i></div>
-        <div class="svc-name">Commercial Window Washing</div>
-        <p class="svc-desc">Offices, storefronts, and commercial buildings — clean windows make lasting first impressions. We keep your business looking sharp.</p>
+        <img class="svc-card-img" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80&fit=crop" alt="Commercial building with glass windows" loading="lazy"/>
+        <div class="svc-card-body">
+          <div class="svc-icon"><i class="fa-solid fa-building"></i></div>
+          <div class="svc-name">Commercial Window Washing</div>
+          <p class="svc-desc">Offices, storefronts, and commercial buildings — clean windows make lasting first impressions. We keep your business looking sharp.</p>
+        </div>
       </div>
       <div class="svc-card reveal d2">
-        <div class="svc-icon"><i class="fa-solid fa-border-all"></i></div>
-        <div class="svc-name">Screen Washing</div>
-        <p class="svc-desc">Dirty screens block light and trap allergens. Our professional equipment transforms grimy screens into bright, like-new condition.</p>
+        <img class="svc-card-img" src="https://images.unsplash.com/photo-1604077350837-c7f8e0b1ea63?w=600&q=80&fit=crop" alt="Clean window screen" loading="lazy"/>
+        <div class="svc-card-body">
+          <div class="svc-icon"><i class="fa-solid fa-border-all"></i></div>
+          <div class="svc-name">Screen Washing</div>
+          <p class="svc-desc">Dirty screens block light and trap allergens. Our professional equipment transforms grimy screens into bright, like-new condition.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ QUOTE FORM ═══════ -->
+<section id="contact" style="background:var(--white);padding:96px 24px;">
+  <div class="container">
+    <div style="max-width:640px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:40px;">
+        <div class="sec-label reveal">Free Estimates</div>
+        <h2 class="sec-title reveal d1">Get a Free Quote</h2>
+        <p class="sec-sub reveal d2" style="margin:0 auto;">Fill out the form below and we'll get back to you with an estimate. <strong>Text (253) 350-0457 for the fastest response.</strong></p>
+      </div>
+      <form class="reveal d2" style="background:var(--bone);border:1px solid var(--border);border-radius:var(--radius);padding:40px 36px;display:flex;flex-direction:column;gap:20px;" onsubmit="event.preventDefault();var b=this.elements;var s='Name: '+b.name.value+'%0APhone: '+b.phone.value+'%0AAddress: '+b.address.value+'%0AService: '+b.service.value+'%0ADetails: '+b.details.value;window.location='mailto:cliffmc598@gmail.com?subject=Quote%20Request%20-%20'+encodeURIComponent(b.name.value)+'&body='+s;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div>
+            <label style="display:block;font-size:.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">Full Name *</label>
+            <input name="name" required placeholder="Your name" style="width:100%;padding:12px 16px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:.92rem;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='#0ea5e9'" onblur="this.style.borderColor='#e2e8f0'"/>
+          </div>
+          <div>
+            <label style="display:block;font-size:.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">Phone Number *</label>
+            <input name="phone" type="tel" required placeholder="(555) 555-5555" style="width:100%;padding:12px 16px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:.92rem;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='#0ea5e9'" onblur="this.style.borderColor='#e2e8f0'"/>
+          </div>
+        </div>
+        <div>
+          <label style="display:block;font-size:.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">Address</label>
+          <input name="address" placeholder="Property address for the quote" style="width:100%;padding:12px 16px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:.92rem;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='#0ea5e9'" onblur="this.style.borderColor='#e2e8f0'"/>
+        </div>
+        <div>
+          <label style="display:block;font-size:.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">Service Needed</label>
+          <select name="service" style="width:100%;padding:12px 16px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:.92rem;outline:none;background:var(--white);transition:border-color .2s;" onfocus="this.style.borderColor='#0ea5e9'" onblur="this.style.borderColor='#e2e8f0'">
+            <option value="">Select a service...</option>
+            <option value="Residential Window Washing">Residential Window Washing</option>
+            <option value="Commercial Window Washing">Commercial Window Washing</option>
+            <option value="Screen Washing">Screen Washing</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div>
+          <label style="display:block;font-size:.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">Additional Details</label>
+          <textarea name="details" rows="3" placeholder="Number of windows, type of property, anything else..." style="width:100%;padding:12px 16px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:.92rem;outline:none;resize:vertical;transition:border-color .2s;" onfocus="this.style.borderColor='#0ea5e9'" onblur="this.style.borderColor='#e2e8f0'"></textarea>
+        </div>
+        <button type="submit" style="width:100%;padding:14px;background:var(--sky);color:#fff;border:none;border-radius:50px;font-family:inherit;font-size:1rem;font-weight:700;cursor:pointer;transition:background .2s,transform .15s;box-shadow:0 4px 18px rgba(14,165,233,.3);" onmouseover="this.style.background='#0284c7';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#0ea5e9';this.style.transform='none'">
+          <i class="fa-solid fa-paper-plane"></i>&nbsp; Send Quote Request
+        </button>
+      </form>
+      <div class="reveal d3" style="text-align:center;margin-top:28px;display:flex;flex-direction:column;gap:12px;align-items:center;">
+        <p style="font-size:.88rem;color:var(--muted);"><i class="fa-solid fa-bolt" style="color:var(--gold);"></i> <strong>Fastest response?</strong> Text us directly at <a href="tel:2533500457" style="color:var(--sky);font-weight:700;">(253) 350-0457</a></p>
+        <p style="font-size:.85rem;color:var(--muted);">Or email: <a href="mailto:cliffmc598@gmail.com" style="color:var(--sky);font-weight:600;">cliffmc598@gmail.com</a></p>
       </div>
     </div>
   </div>
@@ -612,22 +675,31 @@
     </div>
     <div class="gallery-grid">
       <div class="g-item g-1 reveal">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80&fit=crop" alt="Beautiful home with sparkling clean windows" loading="lazy"/>
+        <img src="https://images.unsplash.com/photo-1502175353174-a7a70e73b4c3?w=1200&q=80&fit=crop" alt="Seattle skyline with Mount Rainier" loading="lazy"/>
       </div>
       <div class="g-item g-2 reveal d1">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80&fit=crop" alt="Squeegee on glass — window cleaning tools" loading="lazy"/>
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80&fit=crop" alt="House with sparkling clean windows" loading="lazy"/>
       </div>
       <div class="g-item g-3 reveal d2">
-        <img src="https://images.unsplash.com/photo-1477601263568-180e2c6d046e?w=800&q=80&fit=crop" alt="Washington State mountain skyline" loading="lazy"/>
+        <img src="https://images.unsplash.com/photo-1558317374-067fb5f30001?w=800&q=80&fit=crop" alt="Window cleaning squeegee and tools" loading="lazy"/>
       </div>
       <div class="g-item g-4 reveal">
-        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80&fit=crop" alt="House with pristine clean windows" loading="lazy"/>
+        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80&fit=crop" alt="Modern home with clean glass exterior" loading="lazy"/>
       </div>
       <div class="g-item g-5 reveal d1">
-        <img src="https://images.unsplash.com/photo-1527352774566-e4916e36c645?w=800&q=80&fit=crop" alt="Clean residential window close-up" loading="lazy"/>
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80&fit=crop" alt="Residential home with crystal clear windows" loading="lazy"/>
       </div>
       <div class="g-item g-6 reveal d2">
-        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80&fit=crop" alt="Modern home exterior with clean glass" loading="lazy"/>
+        <img src="https://images.unsplash.com/photo-1604077350837-c7f8e0b1ea63?w=800&q=80&fit=crop" alt="Clean window screen close-up" loading="lazy"/>
+      </div>
+      <div class="g-item g-4 reveal">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80&fit=crop" alt="Squeegee streak on clean glass" loading="lazy"/>
+      </div>
+      <div class="g-item g-5 reveal d1">
+        <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80&fit=crop" alt="Beautiful home exterior with clean windows" loading="lazy"/>
+      </div>
+      <div class="g-item g-6 reveal d2">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80&fit=crop" alt="Commercial building glass facade" loading="lazy"/>
       </div>
     </div>
   </div>
@@ -782,55 +854,6 @@
   </div>
 </div>
 
-<!-- ═══════ QUOTE FORM ═══════ -->
-<section class="services-section" id="contact" style="background:var(--bone);">
-  <div class="container">
-    <div style="max-width:640px;margin:0 auto;">
-      <div style="text-align:center;margin-bottom:40px;">
-        <div class="sec-label reveal">Free Estimates</div>
-        <h2 class="sec-title reveal d1">Get a Free Quote</h2>
-        <p class="sec-sub reveal d2" style="margin:0 auto;">Fill out the form below and we'll get back to you with an estimate. <strong>Text (253) 350-0457 for the fastest response.</strong></p>
-      </div>
-      <form class="reveal d2" style="background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:40px 36px;display:flex;flex-direction:column;gap:20px;" onsubmit="event.preventDefault();var b=this.elements;var s='Name: '+b.name.value+'%0APhone: '+b.phone.value+'%0AAddress: '+b.address.value+'%0AService: '+b.service.value+'%0ADetails: '+b.details.value;window.location='mailto:cliffmc598@gmail.com?subject=Quote%20Request%20-%20'+encodeURIComponent(b.name.value)+'&body='+s;">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-          <div>
-            <label style="display:block;font-size:.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">Full Name *</label>
-            <input name="name" required placeholder="Your name" style="width:100%;padding:12px 16px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:.92rem;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='#0ea5e9'" onblur="this.style.borderColor='#e2e8f0'"/>
-          </div>
-          <div>
-            <label style="display:block;font-size:.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">Phone Number *</label>
-            <input name="phone" type="tel" required placeholder="(555) 555-5555" style="width:100%;padding:12px 16px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:.92rem;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='#0ea5e9'" onblur="this.style.borderColor='#e2e8f0'"/>
-          </div>
-        </div>
-        <div>
-          <label style="display:block;font-size:.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">Address</label>
-          <input name="address" placeholder="Property address for the quote" style="width:100%;padding:12px 16px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:.92rem;outline:none;transition:border-color .2s;" onfocus="this.style.borderColor='#0ea5e9'" onblur="this.style.borderColor='#e2e8f0'"/>
-        </div>
-        <div>
-          <label style="display:block;font-size:.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">Service Needed</label>
-          <select name="service" style="width:100%;padding:12px 16px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:.92rem;outline:none;background:var(--white);transition:border-color .2s;" onfocus="this.style.borderColor='#0ea5e9'" onblur="this.style.borderColor='#e2e8f0'">
-            <option value="">Select a service...</option>
-            <option value="Residential Window Washing">Residential Window Washing</option>
-            <option value="Commercial Window Washing">Commercial Window Washing</option>
-            <option value="Screen Washing">Screen Washing</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-        <div>
-          <label style="display:block;font-size:.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">Additional Details</label>
-          <textarea name="details" rows="3" placeholder="Number of windows, type of property, anything else..." style="width:100%;padding:12px 16px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:.92rem;outline:none;resize:vertical;transition:border-color .2s;" onfocus="this.style.borderColor='#0ea5e9'" onblur="this.style.borderColor='#e2e8f0'"></textarea>
-        </div>
-        <button type="submit" style="width:100%;padding:14px;background:var(--sky);color:#fff;border:none;border-radius:50px;font-family:inherit;font-size:1rem;font-weight:700;cursor:pointer;transition:background .2s,transform .15s;box-shadow:0 4px 18px rgba(14,165,233,.3);" onmouseover="this.style.background='#0284c7';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#0ea5e9';this.style.transform='none'">
-          <i class="fa-solid fa-paper-plane"></i>&nbsp; Send Quote Request
-        </button>
-      </form>
-      <div class="reveal d3" style="text-align:center;margin-top:28px;display:flex;flex-direction:column;gap:12px;align-items:center;">
-        <p style="font-size:.88rem;color:var(--muted);"><i class="fa-solid fa-bolt" style="color:var(--gold);"></i> <strong>Fastest response?</strong> Text us directly at <a href="tel:2533500457" style="color:var(--sky);font-weight:700;">(253) 350-0457</a></p>
-        <p style="font-size:.85rem;color:var(--muted);">Or email: <a href="mailto:cliffmc598@gmail.com" style="color:var(--sky);font-weight:600;">cliffmc598@gmail.com</a></p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ═══════ FOOTER ═══════ -->
 <footer>
