@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>Hero Photo Options</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: system-ui, sans-serif; background: #0f172a; color: #fff; padding: 32px 24px; }
+  h1 { font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; color: #e2e8f0; }
+  p { font-size: .85rem; color: #94a3b8; margin-bottom: 28px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .card { border-radius: 10px; overflow: hidden; position: relative; cursor: pointer; border: 3px solid transparent; transition: border-color .2s, transform .15s; }
+  .card:hover { border-color: #0ea5e9; transform: translateY(-3px); }
+  .card img { width: 100%; height: 220px; object-fit: cover; display: block; }
+  .label { position: absolute; top: 10px; left: 10px; background: rgba(0,0,0,.65); color: #fff; font-size: .95rem; font-weight: 800; padding: 4px 12px; border-radius: 20px; }
+</style>
+</head>
+<body>
+  <h1>Choose your hero background</h1>
+  <p>Tell me the number you want — Jake will pick.</p>
+  <div class="grid">
+    <div class="card">
+      <img src="https://images.pexels.com/photos/18266080/pexels-photo-18266080.jpeg?auto=compress&cs=tinysrgb&w=600" alt="1"/>
+      <div class="label">1</div>
+    </div>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/11771786/pexels-photo-11771786.jpeg?auto=compress&cs=tinysrgb&w=600" alt="2"/>
+      <div class="label">2</div>
+    </div>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/9462096/pexels-photo-9462096.jpeg?auto=compress&cs=tinysrgb&w=600" alt="3"/>
+      <div class="label">3</div>
+    </div>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/9462100/pexels-photo-9462100.jpeg?auto=compress&cs=tinysrgb&w=600" alt="4"/>
+      <div class="label">4</div>
+    </div>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/7641538/pexels-photo-7641538.jpeg?auto=compress&cs=tinysrgb&w=600" alt="5"/>
+      <div class="label">5</div>
+    </div>
+    <div class="card">
+      <img src="https://images.pexels.com/photos/18885426/pexels-photo-18885426.jpeg?auto=compress&cs=tinysrgb&w=600" alt="6"/>
+      <div class="label">6</div>
+    </div>
+  </div>
+</body>
+</html>
