@@ -608,12 +608,17 @@
           <label style="display:block;font-size:.78rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">Additional Details</label>
           <textarea name="details" rows="3" placeholder="Number of windows, type of property, anything else..." style="width:100%;padding:12px 16px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:.92rem;outline:none;resize:vertical;transition:border-color .2s;" onfocus="this.style.borderColor='#0ea5e9'" onblur="this.style.borderColor='#e2e8f0'"></textarea>
         </div>
-        <button type="submit" style="width:100%;padding:14px;background:var(--sky);color:#fff;border:none;border-radius:50px;font-family:inherit;font-size:1rem;font-weight:700;cursor:pointer;transition:background .2s,transform .15s;box-shadow:0 4px 18px rgba(14,165,233,.3);" onmouseover="this.style.background='#0284c7';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#0ea5e9';this.style.transform='none'">
-          <i class="fa-solid fa-comment-sms"></i>&nbsp; Text Quote to Cliff
-        </button>
+        <div style="display:flex;gap:12px;">
+          <button type="button" onclick="var b=this.closest('form').elements;if(!b.name.value||!b.phone.value){alert('Please fill in your name and phone number.');return;}var msg='Hi Cliff! I\'d like a free quote.%0A%0AName: '+b.name.value+'%0APhone: '+b.phone.value+'%0AAddress: '+b.address.value+'%0AService: '+b.service.value+'%0ADetails: '+b.details.value;window.location='sms:2533500457?&body='+msg;" style="flex:1;padding:14px;background:var(--sky);color:#fff;border:none;border-radius:50px;font-family:inherit;font-size:1rem;font-weight:700;cursor:pointer;transition:background .2s,transform .15s;box-shadow:0 4px 18px rgba(14,165,233,.3);" onmouseover="this.style.background='#0284c7';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#0ea5e9';this.style.transform='none'">
+            <i class="fa-solid fa-comment-sms"></i>&nbsp; Text Quote
+          </button>
+          <button type="button" onclick="var b=this.closest('form').elements;if(!b.name.value||!b.phone.value){alert('Please fill in your name and phone number.');return;}var s='Name: '+b.name.value+'%0APhone: '+b.phone.value+'%0AAddress: '+b.address.value+'%0AService: '+b.service.value+'%0ADetails: '+b.details.value;window.location='mailto:cliffmc598@gmail.com?subject=Quote%20Request%20-%20'+encodeURIComponent(b.name.value)+'&body='+s;" style="flex:1;padding:14px;background:var(--white);color:var(--ink);border:1.5px solid var(--border);border-radius:50px;font-family:inherit;font-size:1rem;font-weight:700;cursor:pointer;transition:background .2s,transform .15s;" onmouseover="this.style.borderColor='var(--sky)';this.style.transform='translateY(-2px)'" onmouseout="this.style.borderColor='#e2e8f0';this.style.transform='none'">
+            <i class="fa-solid fa-envelope"></i>&nbsp; Email Quote
+          </button>
+        </div>
       </form>
       <div class="reveal d3" style="text-align:center;margin-top:28px;display:flex;flex-direction:column;gap:12px;align-items:center;">
-        <p style="font-size:.88rem;color:var(--muted);"><i class="fa-solid fa-bolt" style="color:var(--gold);"></i> <strong>How it works:</strong> Fill out the form, hit the button, and your phone's texting app opens with Cliff's number and your info pre-filled. Just hit send!</p>
+        <p style="font-size:.88rem;color:var(--muted);"><i class="fa-solid fa-bolt" style="color:var(--gold);"></i> <strong>How it works:</strong> Fill out the form, choose Text (fastest) or Email — your app opens with Cliff's info pre-filled. Just hit send!</p>
         <p style="font-size:.85rem;color:var(--muted);">Or email: <a href="mailto:cliffmc598@gmail.com" style="color:var(--sky);font-weight:600;">cliffmc598@gmail.com</a></p>
       </div>
     </div>
